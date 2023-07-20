@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&family=Lobster&display=swap');
+
+
+:root{
+    background: url("../images/background (11).jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: body 30s ease infinite;
+  }
+  /* @keyframes body {
+    0%{background-image: url("../images/background (2).jpg");}
+    20%{background-image: url("../images/background (4).jpg");}
+    40%{background-image: url("../images/background (3).jpg");}
+    60%{background-image: url("../images/background (5).jpg");}
+    80%{background-image: url("../images/background.jpg");}
+  } */
+ 
+  h1, h2, h3{
+      font-size: 80px;
+        color: red;
+        margin-bottom: -100px;
+        -webkit-text-stroke: 0.1pt blue;
+        font-family: 'Lobster', cursive;
+        font-weight: bolder;
+  }
+  p{
+      font-size: 30px;
+      color: white;
+      font-family: 'Courgette', cursive;
+     margin-left: 70px;
+     margin-top: 100px;
+      /* width: 500px;
+     border: 5px solid transparent;
+     background-color: blue;
+    border-radius: 9px; */
+  }
+  .started{
+display: inline-block;
+outline: 0;
+color: white;
+cursor: pointer;
+border-radius: 6px;
+border: 4px solid white;
+background: blue;
+padding: 8px;
+font-weight: 800;
+font-size: 20px;
+height: 50px;
+  }
+  .started:hover{
+      background-color: transparent;
+      color: white
+  }
+  .landing-content{
+    text-align: center;
+  }
+ 

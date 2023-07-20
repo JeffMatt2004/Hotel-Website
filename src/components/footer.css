@@ -1,0 +1,78 @@
+#contact{
+    background-color: blue;
+    height: 430px;
+    padding-top: 30px;
+    display: flex;
+}
+
+.Egiglo{
+    font-size: 50px;
+    font-weight: bolder;
+    font-family: Lato;
+}
+.slogan-container{
+    background-color: white;
+    width: 450px;
+    height: 250px;
+    margin: 20px;
+    padding: 30px;
+}
+.slogan1{
+    font-family: Lobster;
+    font-size: 20px;
+}
+.copyright{
+    font-weight: bold;
+    color: white;
+    padding-left: 20px;
+}
+.contact-footer, .contact-links{
+    padding: 40x;
+    margin: 20px;
+    color: white;
+    font-size: 20px;
+}
+.mail{
+    display:flex;
+    padding-top: 20px;
+}
+.contact{
+    font-size: 40px;
+    color: white;
+    font-weight: bolder;
+    padding-bottom: 60px;
+}
+.links{
+    color: white !important;
+}
+@media only screen and (max-width: 480px){
+    #contact{
+        display: block;
+        height: fit-content;
+        width: fit-content;
+        padding-left: 10px;
+        margin-left: 10px;
+    }
+    .slogan1{
+        font-size: 14px;
+        
+    }
+    .slogan-container{
+        width: fit-content;
+        height: fit-content;
+        font-size: 20px;
+    }
+    .copyright{
+        font-size: 12px;
+        padding-left: 0px;
+    }
+    .contact-footer, .contact-links{
+        font-size: 15px;
+    }
+    .contact{
+        font-size: 20px;
+    }
+    .mail{
+        size: 10px;
+    }
+}

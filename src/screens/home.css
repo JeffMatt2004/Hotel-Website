@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Courgette&family=Dancing+Script:wght@700&family=Lilita+One&family=Lobster&display=swap');
+
+.top-section{
+    font-size: 100px;
+    color: white;
+    font-family: 'Belanosima', sans-serif;
+    padding-left: 30px;
+    height: 200px;
+    -webkit-text-stroke: 2pt red;
+    text-align: center;
+}
+.slogan{
+    font-size: 30px;
+    font-family:  'Lobster', cursive;;
+    color: white;  
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 50px;
+    margin-bottom: -70px;
+}
+.discover{
+    color: white;
+    font-weight: bolder;
+         margin-top: -50px;
+         cursor: pointer;
+         border:none;
+         background-color: red;
+         margin-left: 610px;
+         font-size: 20px;
+         height: 40px;
+         width: 150px;
+}
+ .discover:hover{
+     background-color: white !important;
+     color: blue;
+      }
+ .about, .gallery{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: -100px;
+}
+.explore{
+    padding-top: 40px !important;
+    color: blue;
+}
+
+
+.book{
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+    cursor: pointer;
+    color: white;
+    border-radius: 6px;
+    border: 4px solid white;
+    background: red;
+    font-size: 20px;
+    height: 40px;
+    margin-left: 150px;
+}
+.book:hover{
+    background-color: transparent;
+    color: red
+}
+.about-welcome, .about-egiglo{
+    color: blue;
+    font-size: 35px;
+    margin-top: -50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+.about-egiglo{
+    color: red;
+    
+}
+.about-subcontainer{
+    padding-left: 30px;
+}
+
+.about-body{
+color: black;
+font-size: 23px;
+margin-left: 30px;
+font-weight: bold;
+}
+#about{
+    display: flex;
+    margin-bottom: 50px;
+}
+.about-room1{
+    padding-left:200px;
+    padding-top: 120px;
+}
+.about-room3{
+    padding-top: 120px;
+}
+.name{
+    font-size: 25px;
+    border: 4px solid black;
+    width: 120px;
+    padding: 10px;
+    color: red !important;
+    text-align: center;
+}
+.service-name{
+padding-left: 120px;
+width: 300px;
+box-shadow: 2px 4px 4px black;
+margin-bottom: 40px;
+padding: 10px;
+font-size: 20px;
+text-align: center;
+font-family: Lobster;
+
+}
+.about-icons, .services-icons{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+.services-icons{
+    width: 1100px;
+    margin-left: 150px
+}
+.book-btn{
+    width: 200px !important;
+}
+
+@media only screen and (max-width: 480px){
+    body{
+        height: 100px;
+        background-size:contain;
+        background-position-y: 0px;
+    }
+    .top-section{
+        font-size: 30px;
+    }
+}

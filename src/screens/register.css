@@ -1,0 +1,14 @@
+#username, #password, #sex, #fullname, #number{
+    background: white;
+    border: none;
+    width: 400px;
+    outline: none;
+    font-size: 15px;
+    font-family: Lato;
+    margin-bottom: 20px;
+    height: 30px;  
+}
+
+@media only screen and (max-width:480px) {
+
+}
