@@ -8,6 +8,8 @@
     height: 200px;
     -webkit-text-stroke: 2pt red;
     text-align: center;
+    background: url("../images/background (11).jpg");
+    background-size:cover;
 }
 .slogan{
     font-size: 30px;
@@ -129,12 +131,30 @@ font-family: Lobster;
 }
 
 @media only screen and (max-width: 480px){
-    body{
-        height: 100px;
-        background-size:contain;
-        background-position-y: 0px;
-    }
+   
     .top-section{
+        font-size: 31px;
+        -webkit-text-stroke: 0pt red;
+        margin-top: 1px;
+        width: 100vw;
+        padding-top: 2vh;
+        background-size: 100vw;
+        background-repeat: no-repeat;
+        position: fixed;
+    }
+    .slogan{
+        font-size:10px;
+    }
+    .suites{
         font-size: 30px;
+        color: white;
+
+    }
+    .services-icons{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-subcontainer{
+        
     }
 }
