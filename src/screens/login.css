@@ -1,19 +1,37 @@
 .login-container{
-    width: 400px;
-    margin-left: 500px;
-    margin-top: 90px;
-    
-    height: 500px;
+   width: 100vw;
     color: black;
     font-weight: bold;
-    background-color:white;
-    border-radius: 15px;
-    padding: 1rem;  
+   
+    background: url("../images/background (11).jpg");
+    background-size: cover;
     text-transform: none;
     outline: 0;
-    border-radius: 15px;
+background-position:top;
+    padding: 1rem;
     font-size: 20px;
     text-align: center;
+}
+.log{
+    width: 80vw;
+    height: 80vh;
+    background-color: white;
+    padding-top: 10vh;
+    margin-left: 8vw;
+    display: flex;
+    border-radius: 18px;
+    
+}
+.login-cont{
+    width: 450px;
+    height: 500px;
+ background: white;
+ box-shadow: 20px 20px 60px #bebebe,
+            -20px -20px 60px #ffffff;
+
+            margin-right: 5vw;
+    border-radius: 50px;
+    padding: 1rem;
 }
 .login{
     margin-top: 20px;
@@ -35,7 +53,7 @@
     outline: none;
     font-size: 15px;
     font-family: Lato;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     height: 30px;
     
 }
@@ -61,14 +79,72 @@
     font-weight: bold;
     margin-left: 20px;
 }
+.egiglo{
+    font-size: 80px;
+    color: red;
+    font-family: Lato;
+    font-weight: bolder;
+}
+.suites{
+    color: blue;
+    font-size: 70px;
+}
 p2{
     color: black;
     font-weight: bold;
 }
 @media only screen and (max-width:480px) {
-    body{
-       
-       
-   
-    }
+.log{
+    display: block;
+    padding-top: 0vh;
+}
+.egiglo{
+    font-size: 20px;
+}
+.suites{
+    font-size: 20px;
+}
+.copy{
+    font-size: 10px;
+    display: none;
+}
+.login-cont{
+    width: 50vw;
+    height: 50vh;
+    padding-top: 5px;
+    margin-top: -5px;
+    margin-bottom: -20px !important;
+    margin-left: 10vw;
+
+}
+.login{
+    font-size: 20px;
+    margin-top: 0px;
+    padding-bottom: 3px;
+}
+.use{
+    font-size: 10px;
+}
+#username, #password, #sex, #fullname, #number{
+    font-size: 10px !important;
+    width: 170px !important;
+    margin-bottom: 0px !important
+}
+.submit{
+    margin-bottom: 0px;
+    width: 140px;
+    height: 40px;
+    font-size: 15px;
+}
+#sign-up{
+    font-size: 15px;
+}
+#forget{
+    font-size: 13px;
+}
+.login-container{
+    background-size: 120vh;
+    position:fixed;
+    
+}
 }

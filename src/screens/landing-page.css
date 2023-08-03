@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&family=Lobster&display=swap');
 
 
-:root{
+/* :root{
     background: url("../images/background (11).jpg");
     background-repeat: no-repeat;
     background-position: center;
     animation: body 30s ease infinite;
-  }
+  } */
   /* @keyframes body {
     0%{background-image: url("../images/background (2).jpg");}
     20%{background-image: url("../images/background (4).jpg");}

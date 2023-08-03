@@ -8,7 +8,17 @@
     margin-bottom: 20px;
     height: 30px;  
 }
-
-@media only screen and (max-width:480px) {
-
+.register-container{
+    width: 100vw;
+     color: black;
+     font-weight: bold;
+    
+     background: url("../images/background (11).jpg");
+     background-size: cover;
+     text-transform: none;
+     outline: 0;
+ background-position:top;
+     padding: 1rem;
+     font-size: 20px;
+     text-align: center;
 }
