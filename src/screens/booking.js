@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Nav from "../components/nav";
 import './booking.css'
@@ -6,6 +6,7 @@ import room2 from "../images/background (2).jpg"
 import room3 from "../images/background (3).jpg"
 import room4 from "../images/background (4).jpg"
 import room5 from "../images/background (5).jpg"
+import axios from "axios";
 
 export default function Booking() {
     const location = useLocation();
@@ -13,29 +14,60 @@ export default function Booking() {
     const name = queryParams.get('name')
     const url = queryParams.get('url')
     const price = queryParams.get('price')
+    const image = queryParams.get("image")
     const [ismobilemenuopen, setismobilemenuopen] = useState(false)
+    const [images, setRoomImages] = useState([])
+    // const images = queryParams.get('images')?JSON.parse(queryParams.get('images')): []
+
+    useEffect(() =>{
+        fetchImages()
+    },[]);
+        const fetchImages = async () => {
+            try {
+                const response = await fetch('http://3.86.201.69/v1/web/room/all/')
+                const data = await response.json()
+                if (data && data.length>0){
+                    setRoomImages(data[0].images || [])
+                }
+                setRoomImages(data.images || [])
+            }
+            catch (error) {
+                console.error(error)
+            }
+        }
+   
+
+    // const renderRoomImages = roomImages.slice(0, 3).map((image, index) => (
+    //     <img
+    //         className="im"
+    //         key={index}
+    //         src={image.image}
+    //         width={250}
+    //         height={200}
+    //         alt="" />
+    // ))
 
     return (
         <div className="top-container">
             <Nav setismobilemenuopen={setismobilemenuopen} />
             <div className={`booking-flex ${ismobilemenuopen ? "nav-open" : ""}`}>
                 <div className="img1">
-                    <div className="rf">
-                        <img className="im" src={room4} alt="" width={250} height={200} />
-                        <img className="im" src={room2} alt="" width={250} height={200} />
-
-                    </div>
-                    <br />
-                    <div>
-                        <img className="im" src={room4} alt="" width={500} height={400} />
-                    </div>
-                    <br /><br /><br />
-                    <button className="book1-btn">EXPLORE MORE...</button>
+{image && <img className="im" src={image[0].image} width={250} height={200}/>}
+{image && <img className="im" src={image} width={250} height={200}/>}                 
+                     
+                        <br />
+                        <div>
+                            <img className="im" src={room4} alt="" width={500} height={400} />
+                        </div>
+                        <br /><br /><br />
+                        <button className="book1-btn">EXPLORE MORE...</button>
+                 
+               
                 </div>
                 <div className="booking-container">
 
                     <div className="booking-img">
-                        <img className="im" src={url} alt="" width={500} height={400} />
+                       <img src={image} alt="" width={500} height={400}/>
                     </div>
 
 
