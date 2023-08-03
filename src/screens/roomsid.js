@@ -2,7 +2,7 @@ import React from "react"
 
 import rooms from "../components/id"
 import "./roomsid.css"
-import id from "../components/id"
+
 
 
 export default function Showrooms(){
@@ -24,6 +24,7 @@ export default function Showrooms(){
                          <button className="view-btn">View Details</button>
                          <br /><br /><br />
                          </div>
+                         <br />
                          
                     </div>
                     

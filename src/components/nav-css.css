@@ -1,31 +1,40 @@
-nav ul li{
-    display: inline-block;
-  }
-  nav ul li a{
-    font-size: 20px;
-    font-family: Lato;
-    display: block;
-    text-decoration: none;
-    color:black;
-    font-weight: 600;
-    margin: 10px;
-  }
-  nav ul li a,
-  nav ul li a::after,
-  nav ul li a::after{
-    transition: all .5s;
-  }
-  nav ul li a:hover{
-    color:#555;
-  }
-  
-  nav.nav-bar ul li a
-  {
-    position: relative;
-  }
-  nav.nav-bar ul li a::after{
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  font-size: 20px;
+  font-family: Lato;
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  margin: 10px;
+}
+.logout{
+  font-family: 'Lato';
+  font-weight: 600;
+  font-size: 20px;
+  margin: 10px;
+}
+
+nav ul li a,
+nav ul li a::after,
+nav ul li a::after {
+  transition: all .5s;
+}
+
+nav ul li a:hover {
+  color: #555;
+}
+
+nav.nav-bar ul li a {
+  position: relative;
+}
+
+nav.nav-bar ul li a::after {
   position: absolute;
-  bottom:0;
+  bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
@@ -34,76 +43,154 @@ nav ul li{
   color: transparent;
   background: #333;
   height: 1px;
-  }
-  nav.nav-bar ul li a:hover::after{
-    width: 80%;
-  }
-  .nav-bar{
-    justify-content: space-between;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    background-color:white;
-    box-shadow: 0px 2px 4px black;
-    border-radius: 4px;
-    padding: 1rem;
-    margin: 0px;
-    height: 80px;
-    box-sizing: border-box;
-    text-transform: none;
-    
-  }
-  #search-bar{
-    font-size: 1.7rem;
-    width: 100%;
-  }
-  nav ul{
-    text-align: right;
-    justify-content: space-between;
-  }
-  .img-logo{
-    margin-right: auto;
-    background-color: white;
-  }
-  .nav-elements{
-    padding-left: 200px;
-    
-  }
-  .search-bar{
-    margin-right: 10px;
-   height: 30px;
-   width: 200px;
-  }
-  .user-login{
-    padding-left: 10px;
-  }
-  .Header{
-    display: flex;
-  }
-  html,body{
-    height: 100%;
-    margin: 0;
-  }
-  .user-search{
-    margin-right: 200px;
-  }
- 
-  @media only screen and (max-width:768px){
-    nav ul li a{
-      font-size: 10px;
-      font-family: Lato;
+}
 
-    }
-    .img-logo{
-      width: 40px ;
-    }
-    .nav-bar{
-      width: 100vw;
-      height: 60px;
-      
-    }
-    .nav-elements{
-      display: none;
-     
-    }
+nav.nav-bar ul li a:hover::after {
+  width: 80%;
+}
+
+.nav-bar {
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 2px 4px black;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0px;
+  height: 80px;
+  box-sizing: border-box;
+  text-transform: none;
+
+}
+
+
+
+nav ul {
+
+  text-align: right;
+  justify-content: space-between;
+}
+
+.img-logo {
+  margin-right: auto;
+  background-color: white;
+}
+
+.nav-elements {
+  padding-left: -70px !important;
+
+}
+
+.search-bar {
+  margin-right: 10px;
+  height: 30px;
+  width: 200px;
+}
+
+.user-login {
+  padding-left: 10px;
+}
+
+.Header {
+  display: flex;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.user-search {
+  margin-right: 200px;
+}
+
+.mobile-menu-icon {
+  display: none;
+  ;
+  cursor: pointer;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: transform 0.3s;
+}
+
+@media only screen and (max-width:768px) {
+  nav ul li a {
+    font-size: 11px;
+    font-family: Lato;
+
   }
+
+  .img-logo {
+    width: 40px;
+  }
+
+  .nav-bar {
+    width: 1500px !important;
+    height: 60px;
+    ;
+
+  }
+
+  .nav-elements {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: -110px;
+    left: 0;
+    background-color: white;
+    width: 100vw;
+    padding: 10px;
+
+  }
+
+  .mobile-menu-icon {
+    display: block;
+    position: absolute;
+    top: 20px;
+    margin-left: 1400px;
+  }
+
+  .nav-elements.open {
+    display: flex;
+    margin-top: 30vh;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .nav-elements.open li {
+    margin: -5px 0;
+  }
+
+  .bar.open:nth-child(1) {
+    transform: rotate(-45deg);
+  }
+
+  .bar.open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .bar.open:nth-child(3) {
+    transform: rotate(45deg) translate(-6px, -6px);
+  }
+
+.nav-open .main-container{
+  margin-top:500px
+}
+}
+
+@media only screen and (max-width:480px) {
+  .nav-bar {
+    width: 100vw !important;
+  }
+  .mobile-menu-icon {
+    margin-left: 80vw;
+  }
+}

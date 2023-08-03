@@ -1,24 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Courgette&family=Dancing+Script:wght@700&family=Lilita+One&family=Lobster&display=swap');
 
-.top-section{
-    font-size: 100px;
-    color: white;
-    font-family: 'Belanosima', sans-serif;
+.top-section, .suites{
+    font-size: 100px !important;
+    color: white !important;
+    font-family: Lato;
     padding-left: 30px;
-    height: 200px;
-    -webkit-text-stroke: 2pt red;
-    text-align: center;
-    background: url("../images/background (11).jpg");
-    background-size:cover;
+    
+    text-decoration: none;
+    text-align: center; 
 }
+.image-container{
+display: flex;
+
+}
+
+.bg{
+    background: url("../images/background (11).jpg");
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    margin-top: -2px;
+    padding-bottom: 40px;
+    padding-top: 5px;
+}
+
 .slogan{
     font-size: 30px;
-    font-family:  'Lobster', cursive;;
+    font-family:  Lato;
     color: white;  
     text-align: center;
     margin-top: 60px;
     padding-top: 50px;
     margin-bottom: -70px;
+    font-weight: bold
 }
 .discover{
     color: white;
@@ -28,9 +41,9 @@
          border:none;
          background-color: red;
          margin-left: 610px;
-         font-size: 20px;
+         font-size: 10px !important;
          height: 40px;
-         width: 150px;
+         width: 100px !important;
 }
  .discover:hover{
      background-color: white !important;
@@ -117,7 +130,7 @@ font-family: Lobster;
 
 }
 .about-icons, .services-icons{
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     flex-wrap: wrap;
     
@@ -129,32 +142,108 @@ font-family: Lobster;
 .book-btn{
     width: 200px !important;
 }
+@media only screen and (max-width: 786px){
+    .bg{
+        background-size: 1500px ;
+        width: 1500px;
+    }
+    .about-body{
+        width: 1400px !important;
+    }
+    .about-icons{
+        display: flex !important;
+        flex-direction: row !important;
+    }
+    
+}
+
 
 @media only screen and (max-width: 480px){
    
-    .top-section{
-        font-size: 31px;
+    .top-section, .suites{
+        font-size: 31px !important;
+        color: white !important;
         -webkit-text-stroke: 0pt red;
         margin-top: 1px;
-        width: 100vw;
+        background-size:contain !important;
+        background-repeat: no-repeat;  
         padding-top: 2vh;
-        background-size: 100vw;
-        background-repeat: no-repeat;
-        position: fixed;
+        
+
     }
     .slogan{
         font-size:10px;
+        margin-top: -90px !important;
+       
     }
     .suites{
-        font-size: 30px;
+        font-size: 40px !important;
         color: white;
-
+    }
+    .bg{
+        margin-bottom: -60px !important;
+       width: 100vw !important;
     }
     .services-icons{
         display: flex;
         flex-direction: column;
     }
-    .about-subcontainer{
+    #about{
+        display: flex;
+        flex-direction: column;
+       margin-top: -10vh;
+    }
+   
+    .discover{
+        margin-left: 2vw;
         
     }
+    .slogan{
+        margin-left: -10vw;
+        margin-top: -170px;
+        font-size: 12px;
+        margin-bottom: -100px;
+    }
+  .eg, .and, .suites{
+    margin-left: -25vw;
+  }
+  .discover{
+    font-size: 15px;
+    height: 30px;
+    background-color: blue;
+    width: 130px;
+    margin-left: 7vw;
+  }
+  .name{
+    font-size: 15px;
+    border: 4px solid black;
+    width: 70px;
+    padding: 0px;
+  }
+  .about-room1{
+    margin-left: -180px !important;
+    margin-top: -90px;
+    display: flex;
+  }
+  .about-room3{
+    margin-top: -110px;
+    margin-bottom: -30px;
+  }
+  .home-container1{
+    width:100vw!important;
+    background-size: contain !important;
+box-sizing: border-box;
+overflow-x:hidden !important;
+ }
+ .explore{
+    margin-left: 5vw !important;
+ }
+ #services{
+    margin-top: -50px;
+    margin-left: -10vw;
+ }
+ .service-name{
+    margin-left: -80px;
+    width: 60vw;
+ }
 }

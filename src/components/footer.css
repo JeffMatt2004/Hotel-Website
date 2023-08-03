@@ -45,11 +45,16 @@
 .links{
     color: white !important;
 }
+@media only screen and (max-width: 768px){
+#contact{
+    width: 1500px !important;
+}
+}
 @media only screen and (max-width: 480px){
     #contact{
         display: block;
         height: fit-content;
-        width: fit-content;
+        width: fit-content !important;
         padding-left: 10px;
         margin-left: 10px;
     }

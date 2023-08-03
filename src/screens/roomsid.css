@@ -1,18 +1,26 @@
 .rooms-container1{
-    display: flex;
-    padding-left: 20px;
+  display: flex;
+   
 }
+
+
 
 @media only screen and (max-width: 480px){
     .rooms-container1{
-        width:100%;
+       margin-bottom: 50px;
         background-size: contain;
+        display: block;
+        padding-bottom: -30px;
+        width: 70vw;
+        margin-left: 2vw;
+        
     }
 
     .explore {
         font-size: 20px;
         text-align: left;
         margin-left: 130px;
+        margin-top: -50px !important;
     }
     .our{
         margin-left: 20px;
@@ -24,10 +32,7 @@
         max-height: 80vh;
         margin-top: 10px;
     }
-    .room-shadow{
-        display: flex;
-        flex-direction: column;
-    }
+  
     .room-price{
         font-size: 15px;
         width: 80px;
@@ -36,6 +41,10 @@
         font-size: 29px;
         padding-top: 10px;
         padding-bottom: 10px;
+        
+    }
+    .room-shadow{
+        display: inline-block;
         
     }
     .star-icon{

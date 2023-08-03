@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "./home.css"
 import Showrooms from "./roomsid"
 import Nav from "../components/nav"
@@ -22,16 +22,29 @@ import rooms from "../images/rooms.png"
 import sport from "../images/sport.png"
 import yoga from "../images/yoga.png"
 import Foote from "../components/footer";
+import { useNavigate } from "react-router-dom"
+
 
 export default function Home() {
+ useEffect (() =>{
+let token=localStorage.getItem('accessToken')
+if(token===''|| token===null)
+{
+    window.location.href="/login"
+}
+ }, [])
     return (
         <div>
-            <Nav/>
            
-            <h4 className="top-section">EGIGLO HOTELS <br /> <span className="and">AND</span>  <br /> <span className="suites">SUITES</span> </h4>
+
+            <div className="home-container1">
+            <Nav/>
+                <div className="bg">
+            <h4 className="top-section"><span className="eg"></span>EGIGLO HOTELS <br /> <span className="and">AND</span>  <br /> <span className="suites">SUITES</span> </h4>
             <p className="slogan">...Experiencing Maximum Comfort at its Peak...</p>
             <p ><button className="discover">OUR ROOMS</button></p>
-            <div className="explore"><h4>EXPLORE OUR <span className="rooms">ROOMS</span></h4></div>
+            </div>
+            <div className="explore"><h4>EXPLORE OUR <br /> <span className="rooms">ROOMS</span></h4></div>
             <div className="image-container">
                 <Showrooms/>
             </div>
@@ -64,8 +77,9 @@ export default function Home() {
                      <p2>1256 <br /> Clients</p2>
                      </div>
                      </div>
-                     
+                    
                     </div>
+                    
                     <div className="about-room1">
                     <img  src={room11} alt=""  width="250"/>
                     <img  src={room5} alt=""  width="350"/>
@@ -73,13 +87,14 @@ export default function Home() {
                     <div className="about-room3">
                     <img  src={room9} alt=""  width="350"/>
                     <img  src={room4} alt=""  width="250"/>
-                    </div>    
+                    
+                    </div>   
                 </div>
                 <button className="book-btn">Book Now...</button>
 
             <div id="services">
                 <p className="gallery">SERVICES</p>
-                <p><span className="about-welcome">Expore our </span><span className="about-egiglo"> SERVICES</span> </p>
+                <p><span className="about-welcome">Expore our <br /></span><span className="about-egiglo"> SERVICES</span> </p>
                 <div className="services-icons">
 
                      <div className="service-name">
@@ -116,6 +131,7 @@ export default function Home() {
                      <p2>Gym and Yoga: <br /> Find tranquility and inner balance in our dedicated yoga studio.</p2>
                      </div>
                      </div>
+                </div>
                 </div>
                 <br /> <br /><br /><br /><br />
                 <Foote/>

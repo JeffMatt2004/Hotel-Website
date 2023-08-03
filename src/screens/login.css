@@ -1,18 +1,19 @@
-.login-container{
-   width: 100vw;
+.login-container {
+    width: 100vw;
     color: black;
     font-weight: bold;
-   
+
     background: url("../images/background (11).jpg");
     background-size: cover;
     text-transform: none;
     outline: 0;
-background-position:top;
+    background-position: top;
     padding: 1rem;
     font-size: 20px;
     text-align: center;
 }
-.log{
+
+.log {
     width: 80vw;
     height: 80vh;
     background-color: white;
@@ -20,33 +21,41 @@ background-position:top;
     margin-left: 8vw;
     display: flex;
     border-radius: 18px;
-    
+
 }
-.login-cont{
+
+.login-cont {
     width: 450px;
     height: 500px;
- background: white;
- box-shadow: 20px 20px 60px #bebebe,
-            -20px -20px 60px #ffffff;
+    background: white;
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff;
 
-            margin-right: 5vw;
+    margin-right: 5vw;
     border-radius: 50px;
     padding: 1rem;
 }
-.login{
+
+.login {
     margin-top: 20px;
     color: blue;
     font-size: 40px;
-    font-family: Lobster;
+    font-family: Lato;
     margin-bottom: -20px;
 }
-.use{
+
+.use {
     font-size: 20px;
     font-family: Lato;
     color: blue;
-    
+
 }
-#username, #password, #sex, #fullname, #number{
+
+#username,
+#password,
+#sex,
+#fullname,
+#number {
     background: white;
     border: none;
     width: 400px;
@@ -55,96 +64,129 @@ background-position:top;
     font-family: Lato;
     margin-bottom: 0px;
     height: 30px;
-    
+
 }
-.submit{
-        margin-bottom: 20px;
-        color: white;
-        cursor: pointer;
-        border-radius: 12px;
-        border: 4px solid white;
-        background: blue;
-        font-size: 20px;
-        height: 40px;
-        width: 400px;
-        margin-bottom: 40px;
-          }
-          .submit:hover{
-              background-color: transparent;
-              color: blue;
-              font-weight: bolder;
-          }
-#sign-up{
+
+.submit {
+    margin-bottom: 20px;
+    color: white;
+    cursor: pointer;
+
+    border: 4px solid white;
+    background: blue;
+    font-size: 20px;
+    height: 40px;
+    width: 400px;
+    margin-bottom: 40px;
+}
+
+.submit:hover {
+    background-color: transparent;
+    color: blue;
+    font-weight: bolder;
+}
+
+#sign-up {
     color: red !important;
     font-weight: bold;
     margin-left: 20px;
 }
-.egiglo{
+
+.egiglo, .suites {
     font-size: 80px;
-    color: red;
+    color: blue;
     font-family: Lato;
     font-weight: bolder;
 }
-.suites{
-    color: blue;
-    font-size: 70px;
-}
-p2{
+
+
+
+p2 {
     color: black;
     font-weight: bold;
 }
-@media only screen and (max-width:480px) {
+@media only screen and (max-width:768px) {
 .log{
-    display: block;
-    padding-top: 0vh;
-}
-.egiglo{
-    font-size: 20px;
-}
-.suites{
-    font-size: 20px;
-}
-.copy{
-    font-size: 10px;
-    display: none;
-}
-.login-cont{
-    width: 50vw;
-    height: 50vh;
-    padding-top: 5px;
-    margin-top: -5px;
-    margin-bottom: -20px !important;
-    margin-left: 10vw;
-
-}
-.login{
-    font-size: 20px;
-    margin-top: 0px;
-    padding-bottom: 3px;
-}
-.use{
-    font-size: 10px;
-}
-#username, #password, #sex, #fullname, #number{
-    font-size: 10px !important;
-    width: 170px !important;
-    margin-bottom: 0px !important
-}
-.submit{
-    margin-bottom: 0px;
-    width: 140px;
-    height: 40px;
-    font-size: 15px;
-}
-#sign-up{
-    font-size: 15px;
-}
-#forget{
-    font-size: 13px;
+    display: flex;
+    width: fit-content;
+    margin-top: 80px;
+    margin-bottom: 100px;
 }
 .login-container{
-    background-size: 120vh;
-    position:fixed;
+    width: fit-content;
+  height: max-content;
     
 }
+}
+
+@media only screen and (max-width:480px) {
+    .log {
+        display: block;
+        padding-top: 0vh;
+    }
+
+    .egiglo {
+        font-size: 20px;
+    }
+
+    .suites {
+        font-size: 20px !important;
+    }
+
+    .copy {
+        font-size: 10px;
+        display: none;
+    }
+
+    .login-cont {
+        width: 50vw;
+        height: 50vh;
+        padding-top: 5px;
+        margin-top: -5px;
+        margin-bottom: -20px !important;
+        margin-left: 10vw;
+
+    }
+
+    .login {
+        font-size: 20px;
+        margin-top: 0px;
+        padding-bottom: 3px;
+    }
+
+    .use {
+        font-size: 10px;
+    }
+
+    #username,
+    #password,
+    #sex,
+    #fullname,
+    #number {
+        font-size: 10px !important;
+        width: 170px !important;
+        margin-bottom: 0px !important
+    }
+
+    .submit {
+        margin-bottom: 0px;
+        width: 140px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    #sign-up {
+        font-size: 15px;
+    }
+
+    #forget {
+        font-size: 13px;
+    }
+
+    .login-container {
+        background-size: 120vh;
+        width: 100vw;
+        position: fixed;
+
+    }
 }

@@ -12,11 +12,14 @@ import room11 from "../images/background (11).jpg"
 import star from "../images/star.png"
 import bed from "../images/bed.png"
 import wifi from "../images/wifi.png"
+import React, {useEffect} from "react"
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 
 const string = "/Night"
 export default [{
     id:1,
-    url: room1 ,
+    url: [room1 ],
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -26,7 +29,7 @@ export default [{
 },
 {
     id:2,
-    url: room2 ,
+    url: [room3 , room4] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -36,7 +39,7 @@ export default [{
 },
 {
     id:3,
-    url:  room3 ,
+    url:  [room5 , room6] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -46,7 +49,7 @@ export default [{
 },
 {
     id:4,
-    url: room4 ,
+    url: [room7 , room8] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -56,7 +59,7 @@ export default [{
 },
 {
     id:5,
-    url: room5 ,
+    url: [room9 , room10] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -66,7 +69,7 @@ export default [{
 }    ,
 {
     id:6,
-    url: room6 ,
+    url: [room11 , room2] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -76,7 +79,7 @@ export default [{
 },
 {
     id:7,
-    url: room7 ,
+    url: [room11 , room1] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -86,7 +89,7 @@ export default [{
 },
 {
     id:8,
-    url: room8 ,
+    url: [room3 , room4] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -96,7 +99,7 @@ export default [{
 },
 {
     id:9,
-    url: room9 ,
+    url: [room5 , room2] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -106,7 +109,7 @@ export default [{
 },
 {
     id:10,
-    url: room10 ,
+    url:[room9 , room10] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -116,7 +119,7 @@ export default [{
 },
 {
     id:11,
-    url: room11 ,
+    url: [room7 , room8] ,
     icon1: star,
     icon2: bed,
     icon3: wifi,
@@ -126,7 +129,7 @@ export default [{
 },
 {
     id:2,
-    url: room2 ,
+    url: [room1 , room2],
     icon1: star,
     icon2: bed,
     icon3: wifi,
