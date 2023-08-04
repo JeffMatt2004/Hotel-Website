@@ -19,11 +19,7 @@ export default function Displayroom() {
     const [roomsData, setRoomsData] = useState([])
 
 
-    const handleBookNow = (roomid) => {
-        const room = roomsData.find((room) => room.id === roomid)
-        const { name, url, price , images} = room;
-        navigate(`/booking?name=${name}&url=${images}&price=${price}&image=${images[0].image}`);
-    }
+   
     const handleRoomsFetch = (data) => {
         setRoomsData(data)
     }
@@ -40,7 +36,11 @@ export default function Displayroom() {
         }
         fetchRoomsData();
     }, []);
-
+    const handleBookNow = (roomid, name, price, images) => {
+        // const room = roomsData.find((room) => room.room_id === roomid)
+        // const { name,  price , images} = room;
+        navigate(`/booking?name=${encodeURIComponent(name)}&price=${price}&image=${encodeURIComponent(images[0].image)}`);
+    }
 
     const [ismobilemenuopen, setismobilemenuopen] = useState(false)
 
@@ -76,7 +76,7 @@ export default function Displayroom() {
                                         <img className="star-icon" src={star} alt="" width={20} />
                                         <img className="star-icon" src={star} alt="" width={20} />
                                     </h6></div>
-                                    <button onClick={() => handleBookNow(room.id)} className="book-btn">Book Now...</button>
+                                    <button onClick={() => handleBookNow(room.room_id, room.name, room.price, room.images)} className="book-btn">Book Now...</button>
                                     <Link to={`/carousel/${room.id}`}>   <button className="view-btn" >View Details</button></Link>
 
                                     <br /><br /><br />

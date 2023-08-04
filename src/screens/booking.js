@@ -12,62 +12,70 @@ export default function Booking() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search)
     const name = queryParams.get('name')
-    const url = queryParams.get('url')
     const price = queryParams.get('price')
-    const image = queryParams.get("image")
+    const image = queryParams.get('image')
+    // const roomId = queryParams.get("roomid")
     const [ismobilemenuopen, setismobilemenuopen] = useState(false)
     const [images, setRoomImages] = useState([])
-    // const images = queryParams.get('images')?JSON.parse(queryParams.get('images')): []
-
-    useEffect(() =>{
-        fetchImages()
-    },[]);
-        const fetchImages = async () => {
-            try {
-                const response = await fetch('http://3.86.201.69/v1/web/room/all/')
-                const data = await response.json()
-                if (data && data.length>0){
-                    setRoomImages(data[0].images || [])
-                }
-                setRoomImages(data.images || [])
-            }
-            catch (error) {
-                console.error(error)
-            }
-        }
+    const [selectedRoomImages, setSelectedRoomImages]= useState([])
    
 
-    // const renderRoomImages = roomImages.slice(0, 3).map((image, index) => (
-    //     <img
-    //         className="im"
-    //         key={index}
-    //         src={image.image}
-    //         width={250}
-    //         height={200}
-    //         alt="" />
-    // ))
+    useEffect(() => {
+        fetchImages()
+    }, []);
+    const fetchImages = async () => {
+        try {
+            const response = await fetch('http://3.86.201.69/v1/web/room/all/')
+            const data = await response.json()
+            console.log(data)
+            if (data && data.length > 0) {
+                setRoomImages(data[0].images || [])
+            
+               
+                
+            }
+           setRoomImages(data.images||[])
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
 
+
+//     const renderRoomImages = images.map((room, roomindex) => (
+//         <div key={roomindex}>
+// {room.images.map((image, index)=>(
+//         <img
+//             className="im"
+//             key={index}
+//             src={image.image}
+//             width={250}
+//             height={200}
+//             alt="" />
+//     ))}
+// </div>
+//     ))
     return (
         <div className="top-container">
             <Nav setismobilemenuopen={setismobilemenuopen} />
             <div className={`booking-flex ${ismobilemenuopen ? "nav-open" : ""}`}>
                 <div className="img1">
-{image && <img className="im" src={image[0].image} width={250} height={200}/>}
-{image && <img className="im" src={image} width={250} height={200}/>}                 
-                     
-                        <br />
-                        <div>
-                            <img className="im" src={room4} alt="" width={500} height={400} />
-                        </div>
-                        <br /><br /><br />
-                        <button className="book1-btn">EXPLORE MORE...</button>
-                 
-               
+     {image &&  <img className="im" src={decodeURIComponent(image)} width={250} height={200}/>}
+                    <br />
+                    <div>
+                        <img className="im" src={room4} alt="" width={500} height={400} />
+                    </div>
+                    <br /><br /><br />
+                    <button className="book1-btn">EXPLORE MORE...</button>
+
+
                 </div>
                 <div className="booking-container">
 
                     <div className="booking-img">
-                       <img src={image} alt="" width={500} height={400}/>
+                       
+                       {images && image.length>0 && <img className="im" src={decodeURIComponent(image)} width={400}/>}
+                        
                     </div>
 
 
