@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Courgette&family=Dancing+Script:wght@700&family=Lilita+One&family=Lobster&display=swap');
 
-.top-section, .suites{
-    font-size: 100px !important;
+.top-section, .suites1{
+    font-size: 100px ;
     color: white !important;
     font-family: Lato;
     padding-left: 30px;
@@ -11,7 +11,13 @@
 }
 .image-container{
 display: flex;
-
+width: max-content;
+}
+.home-container1{
+    margin-top: 0;
+}
+.home-container1.nav-open{
+    margin-top: 180px !important;
 }
 
 .bg{
@@ -28,7 +34,7 @@ display: flex;
     font-family:  Lato;
     color: white;  
     text-align: center;
-    margin-top: 60px;
+    margin-top: -50px;
     padding-top: 50px;
     margin-bottom: -70px;
     font-weight: bold
@@ -36,14 +42,15 @@ display: flex;
 .discover{
     color: white;
     font-weight: bolder;
-         margin-top: -50px;
+         margin-top: 80px;
+     
          cursor: pointer;
          border:none;
-         background-color: red;
-         margin-left: 610px;
-         font-size: 10px !important;
+         background-color: blue;
+         margin-left: 640px;
+         font-size: 25px !important;
          height: 40px;
-         width: 100px !important;
+         width: 200px !important;
 }
  .discover:hover{
      background-color: white !important;
@@ -54,7 +61,7 @@ display: flex;
     font-size: 20px;
     font-weight: bold;
     color: red;
-    margin-bottom: -100px;
+  
 }
 .explore{
     padding-top: 40px !important;
@@ -81,9 +88,13 @@ display: flex;
 .about-welcome, .about-egiglo{
     color: blue;
     font-size: 35px;
-    margin-top: -50px;
+  
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
+}
+.about-welcome{
+   padding-top: 20px !important;
+   margin-top: 50px;
 }
 .about-egiglo{
     color: red;
@@ -142,6 +153,9 @@ font-family: Lobster;
 .book-btn{
     width: 200px !important;
 }
+.image-container{
+    margin-bottom: 30px;
+}
 @media only screen and (max-width: 786px){
     .bg{
         background-size: 1500px ;
@@ -160,7 +174,7 @@ font-family: Lobster;
 
 @media only screen and (max-width: 480px){
    
-    .top-section, .suites{
+    .top-section{
         font-size: 31px !important;
         color: white !important;
         -webkit-text-stroke: 0pt red;
@@ -168,8 +182,13 @@ font-family: Lobster;
         background-size:contain !important;
         background-repeat: no-repeat;  
         padding-top: 2vh;
-        
-
+        margin-left: 30px;
+        height: 120px;
+       
+    }
+    .suites1{
+        font-size: 31px !important;
+        margin-left: -100px !important;
     }
     .slogan{
         font-size:10px;
@@ -196,6 +215,12 @@ font-family: Lobster;
    
     .discover{
         margin-left: 2vw;
+        margin-top: 100px;
+        font-size: 15px !important;
+        width: 130px !important;
+        margin-left: 80px !important;
+        height: 30px;
+        
         
     }
     .slogan{
@@ -207,13 +232,7 @@ font-family: Lobster;
   .eg, .and, .suites{
     margin-left: -25vw;
   }
-  .discover{
-    font-size: 15px;
-    height: 30px;
-    background-color: blue;
-    width: 130px;
-    margin-left: 7vw;
-  }
+
   .name{
     font-size: 15px;
     border: 4px solid black;
@@ -239,11 +258,11 @@ overflow-x:hidden !important;
     margin-left: 5vw !important;
  }
  #services{
-    margin-top: -50px;
-    margin-left: -10vw;
+  margin-left: 20px;
+   margin-top: 50px;
  }
  .service-name{
-    margin-left: -80px;
+    margin-left: -100px;
     width: 60vw;
  }
 }

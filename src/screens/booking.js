@@ -42,19 +42,13 @@ export default function Booking() {
     }
 
 
-//     const renderRoomImages = images.map((room, roomindex) => (
-//         <div key={roomindex}>
-// {room.images.map((image, index)=>(
-//         <img
-//             className="im"
-//             key={index}
-//             src={image.image}
-//             width={250}
-//             height={200}
-//             alt="" />
-//     ))}
-// </div>
-//     ))
+    useEffect (() =>{
+        let token=localStorage.getItem('accessToken')
+        if(token===''|| token===null)
+        {
+            window.location.href="/login"
+        }
+         }, [])
     return (
         <div className="top-container">
             <Nav setismobilemenuopen={setismobilemenuopen} />

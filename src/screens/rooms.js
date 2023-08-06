@@ -17,33 +17,47 @@ import axios from "axios";
 export default function Displayroom() {
     const navigate = useNavigate()
     const [roomsData, setRoomsData] = useState([])
+    const [isCalanderFilled, setisCalanderFilled] = useState(false)
+    const [selectedStartDate, setSelectedStartDate]=useState(null)
+    const [selectedEndDate, setSeleectedDate]=useState(null)
 
 
-   
+
     const handleRoomsFetch = (data) => {
         setRoomsData(data)
+        setisCalanderFilled(false)
     }
-    useEffect(() =>{
-        const fetchRoomsData = async ()=>{
-            try{
+    const handleSelectedDates=(startDate, endDate)=>{
+        setSelectedStartDate(startDate)
+        selectedEndDate(endDate)
+    }
+    useEffect(() => {
+        const fetchRoomsData = async () => {
+            try {
                 const response = await axios.get('http://3.86.201.69/v1/web/room/all/')
                 const roomsData = response.data;
                 setRoomsData(roomsData)
+                setisCalanderFilled(true)
             }
-            catch(error){
+            catch (error) {
                 console.error(error)
             }
         }
         fetchRoomsData();
     }, []);
     const handleBookNow = (roomid, name, price, images) => {
-        // const room = roomsData.find((room) => room.room_id === roomid)
-        // const { name,  price , images} = room;
+
         navigate(`/booking?name=${encodeURIComponent(name)}&price=${price}&image=${encodeURIComponent(images[0].image)}`);
     }
 
     const [ismobilemenuopen, setismobilemenuopen] = useState(false)
 
+    useEffect(() => {
+        let token = localStorage.getItem('accessToken')
+        if (token === '' || token === null) {
+            window.location.href = "/login"
+        }
+    }, [])
 
     return (
 
@@ -56,7 +70,7 @@ export default function Displayroom() {
                     <div className="room-naming">
                         <b><p6 >-OUR ROOMS-</p6></b>
                     </div>
-                    <MyCalendar onRoomsFetch={handleRoomsFetch} />
+                    <MyCalendar onRoomsFetch={handleRoomsFetch} onSelectDates={handleSelectedDates}/>
 
 
 
@@ -76,8 +90,18 @@ export default function Displayroom() {
                                         <img className="star-icon" src={star} alt="" width={20} />
                                         <img className="star-icon" src={star} alt="" width={20} />
                                     </h6></div>
-                                    <button onClick={() => handleBookNow(room.room_id, room.name, room.price, room.images)} className="book-btn">Book Now...</button>
-                                    <Link to={`/carousel/${room.id}`}>   <button className="view-btn" >View Details</button></Link>
+                                    <button disabled={isCalanderFilled}
+                                        className={`book-btn ${isCalanderFilled ? 'disabled' : ''}`}
+                                        title={!isCalanderFilled ? "Please Enter your date of stay" : ''}
+                                        onClick={() => handleBookNow
+                                        (room.room_id, room.name, room.price, room.images)} >
+                                            Book Now...</button>
+
+                                    <Link to={{ pathname: `/carousel/${room.room_id}` }}
+                                        state={{ roomsData: room, images: room.images }}
+                                    >
+                                        <button className="view-btn" >View Details</button>
+                                    </Link>
 
                                     <br /><br /><br />
 

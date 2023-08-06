@@ -1,28 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import rooms from './id'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import axios from 'axios'
 
 const CarouselPage = () => {
-    const { roomID } = useParams();
-    const room = rooms.find((room) => room.id === parseInt(roomID))
-
-    if (!room) {
-        return <div>Room not found</div>
-    }
+    useEffect (() =>{
+        let token=localStorage.getItem('accessToken')
+        if(token===''|| token===null)
+        {
+            window.location.href="/login"
+        }
+         }, [])
+    const location = useLocation()
+    const {roomsData, images}= location.state||{}
+   
 
     return (
         <div>
-            <h4>{room.name}</h4>
+              <h4>{roomsData.name}</h4>
             <Carousel>
-                {room.url.map((image, index) => (
+              
+                {images.map((image, index) => (
                     <div key={index}>
-                        <img src={image} width={100} alt="" />
-                        <h4>{room.description}</h4>
+                        <img src={image.image} width={100} alt="" />
+                       
                     </div>
                 ))}
+               
             </Carousel>
+            <h4>{roomsData.description}</h4>
         </div>
     )
 }

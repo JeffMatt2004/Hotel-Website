@@ -5,6 +5,9 @@
  
 
 }
+.book-btn:disabled{
+    display: none;
+}
 .main-container{
     margin-top: 0;
 }
@@ -17,6 +20,7 @@
     background: url("../images/background (11).jpg")  ;
     background-repeat: no-repeat  ;
     background-size: 100vw  ;
+width: 100vw;
     height: 300px  ;
     padding-top: 150px  ;
     font-family: Lato  ;
@@ -121,7 +125,8 @@
     .room-naming {
         font-size: 30px;
         padding-top: 80px;
-        background-size:cover;
+        width: 81vw !important;
+        background-size:contain;
         height: 120px;
         padding-left: 60px;
        

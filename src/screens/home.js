@@ -1,4 +1,5 @@
-import React, { useEffect } from "react"
+import React, { useEffect , useState} from "react"
+import { Link } from "react-router-dom"
 import "./home.css"
 import Showrooms from "./roomsid"
 import Nav from "../components/nav"
@@ -33,16 +34,19 @@ if(token===''|| token===null)
     window.location.href="/login"
 }
  }, [])
+
+ const [ismobilemenuopen, setismobilemenuopen] = useState(false)
+
     return (
         <div>
            
-
-            <div className="home-container1">
-            <Nav/>
+           <Nav setismobilemenuopen={setismobilemenuopen}/>
+            <div className={`home-container1 ${ismobilemenuopen ? "nav-open" : ""}`}>
+           
                 <div className="bg">
-            <h4 className="top-section"><span className="eg"></span>EGIGLO HOTELS <br /> <span className="and">AND</span>  <br /> <span className="suites">SUITES</span> </h4>
+            <h4 className="top-section"><span className="eg"></span>EGIGLO HOTELS <br /> <span className="and">AND</span>  <br /> <span className="suites1">SUITES</span> </h4>
             <p className="slogan">...Experiencing Maximum Comfort at its Peak...</p>
-            <p ><button className="discover">OUR ROOMS</button></p>
+          <Link to={"/rooms"}><p ><button className="discover">OUR ROOMS</button></p></Link> 
             </div>
             <div className="explore"><h4>EXPLORE OUR <br /> <span className="rooms">ROOMS</span></h4></div>
             <div className="image-container">
@@ -90,7 +94,7 @@ if(token===''|| token===null)
                     
                     </div>   
                 </div>
-                <button className="book-btn">Book Now...</button>
+               <Link to={"/rooms"}><button className="book-btn">Book Now...</button></Link> 
 
             <div id="services">
                 <p className="gallery">SERVICES</p>
