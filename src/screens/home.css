@@ -94,7 +94,7 @@ width: max-content;
 }
 .about-welcome{
    padding-top: 20px !important;
-   margin-top: 50px;
+   margin-top: -10px;
 }
 .about-egiglo{
     color: red;
@@ -211,6 +211,7 @@ font-family: Lobster;
         display: flex;
         flex-direction: column;
        margin-top: -10vh;
+    
     }
    
     .discover{

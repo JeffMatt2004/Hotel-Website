@@ -5,7 +5,7 @@ import "./calender.css"
 import axios from "axios";
 
 
-export default function MyCalendar({onRoomsFetch})
+export default function MyCalendar({onRoomsFetch, onSelectDates})
 {
 
   const {RangePicker} =DatePicker
@@ -15,15 +15,19 @@ export default function MyCalendar({onRoomsFetch})
   }
   const handleSearch =async()=>{
     const [startDate, endDate] = selectedDates
+   
+    if(onSelectDates){
+      onSelectDates(startDate, endDate)
+    }
     const params = {
       date_begin: startDate.format("YY-MM-DD"),
       end_date: endDate.format("YY-MM-DD"),
     };
     try{
-      const response = await axios.get('http://3.86.201.69/v1/web/room/all/', {params})
+      const response = await axios.get('http://34.201.251.63/v1/web/room/all/', {params})
       const roomsData = response.data;
       onRoomsFetch(roomsData)
-      console.log(response.data)
+  
     }
     catch(error){
 console.error(error)

@@ -26,14 +26,14 @@ export default function Login()
     const HandleSubmit = async(e) =>{
         e.preventDefault();
             try{
-                const response = await axios.post('http://3.86.201.69/v1/admin/login/', formData);
+                const response = await axios.post('http://34.201.251.63/v1/admin/login/', formData);
                 const {access, refresh} = response.data.tokens;
                 localStorage.setItem('accessToken', access)
                 localStorage.setItem('refreshToken', refresh)
                
             
 
-                alert("Login Successful!, Redirecting...")
+                alert("Login Successful!, Click Ok Redirect")
                 navigate("/home")
 
           

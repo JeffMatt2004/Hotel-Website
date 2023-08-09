@@ -12,6 +12,8 @@ export default function Register({})
         email:"",
         username:"",
         password:"",
+        phone_no:"",
+        sex: ""
    
     });
     const handleChange = (e) =>{
@@ -19,14 +21,14 @@ export default function Register({})
         setFormData(function(prevData){
             return{
             ...prevData,
-            [name]: value,
+            [name]:  String(value) ,
             };
         });
         };
       async function handleSubmit(e){
         e.preventDefault();
         try{
-            const response = await axios.post ('http://3.86.201.69/v1/admin/register/', formData);
+            const response = await axios.post ('http://34.201.251.63/v1/admin/register/', formData);
            const {access, refresh} = response.data.tokens
            localStorage.setItem('accessToken', access);
            localStorage.setItem('refreshToken', refresh)
@@ -36,9 +38,10 @@ export default function Register({})
         }
         catch(error){
             alert('Registration failed!', error.message);
+            console.log(formData)
         }
     };
-
+    console.log(formData)
     return(
         <div className="login-container">
         <div className="log">
@@ -57,16 +60,15 @@ export default function Register({})
             <br />
             <input type="text"  id="fullname" name="username" value={formData.username} onChange={handleChange}  placeholder="Full Name" required/>
             <br />
-            <input type="text"  id="password" name="password" value={formData.password} onChange={handleChange}  placeholder="Password" required/>  
+            <input type="password"  id="password" name="password" value={formData.password} onChange={handleChange}  placeholder="Password" required/>  
             <br />
-            <input type="text"  id="sex" name="sex" placeholder="Sex" />  
+            <input type="text"  id="sex" name="sex" value={formData.sex} placeholder="Sex" onChange={handleChange} required/>  
             <br />
-            <input type="number"  id="number" name="number" placeholder="Phone Number" />  
-            <br />
+            <input type="text"  id="number" name="number" value={formData.phone_no } onChange={handleChange} placeholder="Phone Number" />  
             
             <input className="submit" type="submit" value="Register Now."/>
             </form>
-            <br />
+          
            
             <Link to={"/login"}>
             <a id="sign-up" href="#login">Login</a>

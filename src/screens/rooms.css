@@ -62,7 +62,7 @@ width: 100vw;
 .room-price {
     font-size: 20px  ;
     font-weight: bolder  ;
-    background-color: red  ;
+    background-color: blue ;
     color: white  ;
     width: 110px  ;
     height: 25px  ;
@@ -73,9 +73,9 @@ width: 100vw;
 .room-name {
     font-size: 40px  ;
     margin-top: -45px  ;
-    color: blue  ;
-    font-family: 'Lucida Sans '  ;
-    font-weight: bolder  ;
+    color: blue;
+    font-family: Lato ;
+    font-weight: bolder !important ;
     margin-bottom: -30px  ;
     margin-left: 10px  ;
 }
@@ -95,7 +95,7 @@ width: 100vw;
     margin-top: -50px  ;
     cursor: pointer  ;
     border: none  ;
-    background-color: red  ;
+    background-color: blue  ;
     margin-left: 10px  ;
     font-size: 20px  ;
     height: 40px  ;
