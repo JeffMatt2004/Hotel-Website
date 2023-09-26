@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import axios from 'axios'
 import "./register.css"
 import { Link } from "react-router-dom";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useHis} from 'react-router-dom'
+import { Toast } from "bootstrap";
 
 
 export default function Register({})
@@ -21,27 +22,36 @@ export default function Register({})
         setFormData(function(prevData){
             return{
             ...prevData,
-            [name]:  String(value) ,
+            [name]:  value ,
             };
         });
         };
       async function handleSubmit(e){
         e.preventDefault();
         try{
-            const response = await axios.post ('http://34.201.251.63/v1/admin/register/', formData);
-           const {access, refresh} = response.data.tokens
-           localStorage.setItem('accessToken', access);
-           localStorage.setItem('refreshToken', refresh)
-            alert('Registration Successful');
-            navigate('/home')
+            const response = await fetch('http://34.201.251.63/v1/admin/register/',{
+            method: 'POST',
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify(formData),
+         
             
-        }
-        catch(error){
-            alert('Registration failed!', error.message);
-            console.log(formData)
-        }
+        });
+      if(response.ok){
+        const responseData =await response.json()
+        alert('Registration Successful, Please click ok Login')
+        navigate('/login')
+      }
+      else{
+        alert('registration failed')
+      }}
+      catch(error){
+        alert(error.message)
+        console.log(formData)
+      }
     };
-    console.log(formData)
+   
     return(
         <div className="login-container">
         <div className="log">
@@ -64,7 +74,7 @@ export default function Register({})
             <br />
             <input type="text"  id="sex" name="sex" value={formData.sex} placeholder="Sex" onChange={handleChange} required/>  
             <br />
-            <input type="text"  id="number" name="number" value={formData.phone_no } onChange={handleChange} placeholder="Phone Number" />  
+            <input type="text"  id="number" name="phone_no" value={formData.phone_no} placeholder="Phone" onChange={handleChange} required/>  
             
             <input className="submit" type="submit" value="Register Now."/>
             </form>

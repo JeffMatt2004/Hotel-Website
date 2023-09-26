@@ -6,7 +6,7 @@ import './booking.css'
 import room2 from "../images/background (2).jpg"
 import room3 from "../images/background (3).jpg"
 import room4 from "../images/background (4).jpg"
-import room5 from "../images/background (5).jpg"
+import { PaystackButton } from "react-paystack";
 import axios from "axios";
 import { query } from "firebase/firestore";
 
@@ -18,39 +18,47 @@ export default function Booking() {
     const image = queryParams.get('image')
     const startDate = queryParams.get('startDate')
     const endDate = queryParams.get('endDate')
-    const roomId = queryParams.get("roomid")
+    const roomId = queryParams.get("id")
     const [ismobilemenuopen, setismobilemenuopen] = useState(false)
     const [images, setRoomImages] = useState([])
-    const [selectedRoomImages, setSelectedRoomImages]= useState([])
+    const [selectedRoomImages, setSelectedRoomImages] = useState([])
+    const storedUserEmail = localStorage.getItem('userEmail')
+    const [userEmail, setUserEmail] = useState(storedUserEmail || '')
 
-    const formatstartDate = startDate?moment(startDate).format("YYYY-MM-DD"): null;
-    const formatendDate = endDate?moment(endDate).format("YYYY-MM-DD"):null;
+    const formatstartDate = startDate ? moment(startDate).format("YYYY-MM-DD") : null;
+    const formatendDate = endDate ? moment(endDate).format("YYYY-MM-DD") : null;
 
-    console.log(formatstartDate, formatendDate)
-   
-    const handlePayNow = async()=>{
-        try{
+    const paystackKey = "pk_test_ba47fd154d352140fda2ab0b737aaf33d0e3f1b7"
+
+    const handlePayNow = async () => {
+       
+        try {
             const response = await axios.post('http://34.201.251.63/v1/web/room/log/', {
-                room_number:roomId,
-                booked_date:formatstartDate,
-                end_date:formatendDate
+                user: userEmail,
+                email:"ametsejeffery@gmail.com",
+                room_number: roomId,
+                booked: true,
+                booked_date: formatstartDate,
+                end_date: formatendDate,
             })
             console.log(response.data)
             alert("Room Successfully booked")
         }
-        catch(error){
+        catch (error) {
             console.error(error)
-        }
+            console.log(roomId)
+        } 
+  
     }
 
     const [numberOfDays, setnumberOfDays] = useState(0);
-    const [totalAmount, settotalAmount]= useState(0)
-    useEffect(()=>{
-        if (startDate && endDate){
-            const duration =moment.duration(moment(endDate).diff(moment(startDate)))
+    const [totalAmount, settotalAmount] = useState(0)
+    useEffect(() => {
+        if (startDate && endDate) {
+            const duration = moment.duration(moment(endDate).diff(moment(startDate)))
             const days = duration.asDays()
             setnumberOfDays(days)
-            settotalAmount(days*price)
+            settotalAmount(days * price)
         }
     }, [startDate, endDate])
 
@@ -61,14 +69,14 @@ export default function Booking() {
         try {
             const response = await fetch('http://34.201.251.63/v1/web/room/all/')
             const data = await response.json()
-           
+
             if (data && data.length > 0) {
                 setRoomImages(data[0].images || [])
-            
-               
-                
+
+
+
             }
-           setRoomImages(data.images||[])
+            setRoomImages(data.images || [])
         }
         catch (error) {
             console.error(error)
@@ -76,34 +84,33 @@ export default function Booking() {
     }
 
 
-    useEffect (() =>{
-        let token=localStorage.getItem('accessToken')
-        if(token===''|| token===null)
-        {
-            window.location.href="/login"
+    useEffect(() => {
+        let token = localStorage.getItem('accessToken')
+        if (token === '' || token === null) {
+            window.location.href = "/login"
         }
-         }, [])
+    }, [])
     return (
         <div className="top-container">
             <Nav setismobilemenuopen={setismobilemenuopen} />
             <div className={`booking-flex ${ismobilemenuopen ? "nav-open" : ""}`}>
                 <div className="img1">
-     {image &&  <img className="im" src={decodeURIComponent(image)} width={250} height={200}/>}
+                    {image && <img className="im" src={decodeURIComponent(image)} width={250} height={200} />}
                     <br />
                     <div>
                         <img className="im" src={room4} alt="" width={500} height={400} />
                     </div>
                     <br /><br /><br />
-                   <Link to={"/rooms"}><button className="book1-btn">EXPLORE MORE...</button></Link> 
+                    <Link to={"/rooms"}><button className="book1-btn">EXPLORE MORE...</button></Link>
 
 
                 </div>
                 <div className="booking-container">
 
                     <div className="booking-img">
-                       
-                       {images && image.length>0 && <img className="im" src={decodeURIComponent(image)} width={400}/>}
-                        
+
+                        {images && image.length > 0 && <img className="im" src={decodeURIComponent(image)} width={400} />}
+
                     </div>
 
 
@@ -111,7 +118,7 @@ export default function Booking() {
                         <h4 className="bd">     BOOKING DETAILS</h4>
                         <hr />
                         <h4><span className="ba">ROOM:</span><span className="dt">{name}</span></h4>
-                        <h4><span className="ba">EMAIL:</span>               <span className="dt">jeff@gmail.com</span> </h4>
+                        <h4><span className="ba">EMAIL:</span>               <span className="dt">{userEmail}</span> </h4>
                         <h4><span className="ba">FROM DATE:</span>              <span className="dt">{startDate}</span></h4>
                         <h4><span className="ba">END DATE:</span>              <span className="dt">{endDate}</span> </h4>
                         <h4><span className="ba">NUMBER OF DAYS:</span>           <span className="dt">{numberOfDays}</span></h4>
@@ -121,7 +128,18 @@ export default function Booking() {
 
                     </div>
                     <div className="bt">
-                        <button onClick={handlePayNow} className="pay-btn"><b>PAY NOW</b></button>
+                     <PaystackButton
+                     text="PAY NOW"
+                     class="pay-tbn"
+                     className="pay-btn"
+                     callback={handlePayNow}
+                     onClose={()=>console.log("Payment Closed")}
+                     reference={new Date().getTime().toString()}
+                     email={userEmail}
+                     amount={totalAmount*100}
+                     paystackKey={paystackKey}
+                    
+                     />
                     </div>
                 </div>
                 <div className="booking-desc">
@@ -132,7 +150,7 @@ export default function Booking() {
                         The hotel offers 24-hours room service and a fitness center, and an onsite restaurant. There is also a
                         business center woth printing and photocopying sevices.....</i>
                     </h4>
-                   <Link to={"/rooms"}><button className="book1-btn">VIEW MORE...</button></Link> 
+                    <Link to={"/rooms"}><button className="book1-btn">VIEW MORE...</button></Link>
 
                 </div>
             </div>

@@ -30,7 +30,7 @@ export default function Login()
                 const {access, refresh} = response.data.tokens;
                 localStorage.setItem('accessToken', access)
                 localStorage.setItem('refreshToken', refresh)
-               
+                localStorage.setItem('userEmail', response.data.email)
             
 
                 alert("Login Successful!, Click Ok Redirect")
